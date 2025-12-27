@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Rave Palette */
+  --background: 0 0% 4%; /* #0a0a0a */
+  --foreground: 0 0% 95%;
+
+  --card: 0 0% 7%; /* #111111 */
+  --card-foreground: 0 0% 95%;
+
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 95%;
+
+  --primary: 73 100% 50%; /* Acid Green #ccff00 */
+  --primary-foreground: 0 0% 5%;
+
+  --secondary: 300 100% 50%; /* Neon Pink #ff00ff */
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 60%;
+
+  --accent: 180 100% 50%; /* Electric Blue #00ffff */
+  --accent-foreground: 0 0% 5%;
+
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 0 0% 20%;
+  --input: 0 0% 15%;
+  --ring: 73 100% 50%;
+
+  --radius: 0rem; /* Sharp edges for brutalist/rave feel */
+
+  /* Fonts */
+  --font-display: 'Oxanium', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight uppercase;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+  
+  .box-glow {
+    box-shadow: 0 0 20px -5px currentColor;
+  }
+
+  .neon-border {
+    box-shadow: 0 0 5px theme('colors.primary.DEFAULT'),
+                inset 0 0 5px theme('colors.primary.DEFAULT');
+  }
+  
+  .clip-path-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .clip-path-hex {
+    clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 hover:bg-primary;
+}
